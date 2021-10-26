@@ -64,37 +64,37 @@
 
     <p><span class="error">* Harus Diisi</span></p>
 
-    <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?> ">
+    <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>">
         <table>
             <tr>
                 <td>Nama : </td>
-                <td><input type="text" name="nama">
+                <td><input type=" text" name="nama" id="nama">
                     <span class="error"><?php echo $namaErr; ?></span>
                 </td>
             </tr>
             <tr>
                 <td>Email : </td>
-                <td><input type="text" name="email">
+                <td><input type="text" name="email" id="email">
                     <span class="error"><?php echo $emailErr; ?></span>
                 </td>
             </tr>
             <tr>
                 <td>Website : </td>
-                <td><input type="text" name="website">
+                <td><input type="text" name="website" id="website">
                     <span class="error"><?php echo $websiteErr; ?></span>
                 </td>
             </tr>
             <tr>
                 <td>Komentar : </td>
-                <td><textarea name="comment" rows="5" cols="40"></textarea></span>
+                <td><textarea name="comment" rows="5" cols="40" id="comment"></textarea></span>
                 </td>
             </tr>
             <tr>
                 <td>Gender : </td>
                 <td>
                     <input type="radio" name="gender" value="L">Laki-Laki
-                    <input type="radio" name="gender" value="P">Perempaun
-                    <span class="error"><?php echo $genderErr; ?></span>
+                    <input type="radio" name="gender" value="P">Perempuan
+                    <span class=" error"><?php echo $genderErr; ?></span>
                 </td>
             </tr>
 
@@ -103,9 +103,15 @@
             </td>
         </table>
     </form>
+    <div><strong><a href="table.php">::Lihat Data::</a></strong></div>
 
     <?php
-    echo "<h2>Data yang anda isi : </h2>";
+    echo "<head><title>Hasil Data</head></title>";
+
+    $fp = fopen("hasil.txt", "a+");
+    fputs($fp, "$nama|$email|$website|$comment|$gender\n");
+    fclose($fp);
+
     echo $nama;
     echo "<br>";
 
