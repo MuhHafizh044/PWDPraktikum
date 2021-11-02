@@ -46,7 +46,7 @@
     }
 
     if (empty($_POST["gender"])) {
-        $gender = "Gender Harus Dipilih";
+        $genderErr = "Gender Harus Dipilih";
     } else {
         $gender = test_input($_POST["gender"]);
     }
